@@ -1,6 +1,7 @@
 package com.jenil.app;
 
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/users")
@@ -15,5 +16,10 @@ public class UserController {
     @PostMapping
     public User createUser(@RequestBody User user) {
         return userRepository.save(user);
+    }
+
+    @GetMapping
+    public List<User> listUsers() {
+        return userRepository.findAll();
     }
 }
